@@ -22,8 +22,7 @@ struct URL{
                     host = values[2];
                     if (values.size() > 3){
                         path = "/" + values[3].str();
-                    }
-                    else {
+                    } else {
                         path = "/";
                     }
                 }
