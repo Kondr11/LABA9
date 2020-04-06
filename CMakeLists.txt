@@ -60,10 +60,7 @@ target_include_directories(tests
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# TODO: change template word to project name and delete this comment
-target_link_libraries(tests GTest::main template)
-
-target_link_libraries(localTest
+target_link_libraries(template
         ${CMAKE_THREAD_LIBS_INIT}
         Boost::thread
         Boost::filesystem
@@ -72,6 +69,9 @@ target_link_libraries(localTest
         Beast::Beast
         gumbo::gumbo
         thread-pool-cpp::thread-pool-cpp)
+
+# TODO: change template word to project name and delete this comment
+target_link_libraries(tests GTest::main template)
 
 enable_testing()
 add_test(NAME unit_tests COMMAND tests) 
