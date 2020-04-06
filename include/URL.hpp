@@ -4,6 +4,7 @@
 #define INCLUDE_URL_HPP_
 
 #include <header.hpp>
+#include <string>
 
 struct URL{
     std::string protocol{};
