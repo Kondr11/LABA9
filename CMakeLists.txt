@@ -25,8 +25,7 @@ string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 
-hunter_add_package(GTest)
-find_package(GTest CONFIG REQUIRED)
+
 
 hunter_add_package(Boost COMPONENTS filesystem system thread program_options)
 find_package(Boost CONFIG REQUIRED filesystem system thread program_options)
@@ -70,11 +69,9 @@ target_link_libraries(template
         gumbo::gumbo
         thread-pool-cpp::thread-pool-cpp)
 
-# TODO: change template word to project name and delete this comment
-target_link_libraries(tests GTest::main template)
 
-enable_testing()
-add_test(NAME unit_tests COMMAND tests) 
+
+
 
 if(BUILD_COVERAGE)
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
@@ -82,7 +79,6 @@ if(BUILD_COVERAGE)
   find_package(codecov)
   # TODO: change template word to project name and delete this comment
   add_coverage(template)
-  add_coverage(tests)
-  list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
+
   coverage_evaluate()
 endif()
