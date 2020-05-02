@@ -42,7 +42,7 @@ void parseRecursively(
                                         .element
                                         .attributes
                                         .data[i])).name,
-                        "src") = 0){
+                        "src") == 0){
                     threadPool2.process([
                                                 &outputFile,
                                                 &node,
@@ -70,7 +70,7 @@ void parseRecursively(
                                         .element
                                         .attributes
                                         .data[i])).name,
-                        "href") = 0){
+                        "href") == 0){
                     URL url((*reinterpret_cast<
                             GumboAttribute*
                             >(node
